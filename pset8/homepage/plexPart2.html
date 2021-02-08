@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal CV or Portfolio">
+    <title>Lazegeek</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background-color:rgb(46,47,51);">
+    <div>
+        <div class="header-dark">
+            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search" style="color:rgb(255,255,255);background-color:rgba(0,0,0,0);">
+                <div class="container"><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="index.html" style="color:rgb(255,255,255);">About</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="blog.html" style="color:rgb(255,255,255);">Blog</a></li>
+                        </ul>
+                        <form class="form-inline mr-auto" target="_self">
+                            <div class="form-group"><label for="search-field"></label></div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="container hero">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2" data-aos="zoom-out-up" data-aos-duration="1100" data-aos-once="true">
+                        <h1 class="text-center" style="margin:0px;">I'm Hein Reyneke</h1><span id="devText" class="col-lg-4 offset-lg-3 col-md-6 offset-md-2 col-sm-4 offset-sm-2"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="article-clean" style="background-color:rgb(46,47,51);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    <div class="intro">
+                        <h1 class="text-center" style="color:rgb(255,255,255);">There is no place like 127.0.0.1, part 2</h1>
+                        <p class="text-center"><span class="by" style="color:rgb(255,255,255);">by</span> <a href="#" style="color:rgb(255,255,255);">Hein Reyneke</a><span class="date" style="color:rgb(255,255,255);">OCT 15th, 2018</span></p><img class="img-fluid" src="assets/img/plex2.jpg"></div>
+                    <div
+                        class="text">
+                        <p>Today we will be continuing the build of our media server, last time we learned how to setup a Virtual Machine with&nbsp;<a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>and how to setup Ubuntu OS onto the new
+                            VM. In case you missed it, you can have a look at it&nbsp;<a href="plexPart1.html">here</a>.</p>
+                        <p>Lets get started adding software to our media server, once you have Ubuntu installed as per the previous tutorial you can either connect to it by using the window that VirtualBox opens or by using SSH to connect to the IP of the
+                            VM, I prefer to use the SSH option as it allows you to copy and past the code snippets below directly into the command line where otherwise you would have had to write out the whole command, so you will need to get a software
+                            called&nbsp;<a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe">Putty</a>&nbsp;if you are using windows or if you are on Mac or Linux you can &nbsp;just use your terminal.</p>
+                        <p>To connect to your VM you will need to know what the IP is, to do this (in the VirtualBoxVM window) run this command:</p>
+                        <ul class="list-group">
+                            <li class="list-group-item"><span><em>ip a</em><br></span></li>
+                        </ul>
+                        <p style="margin:20px 0px 20px;">You will get a response simmilar to the screenshot below, however your ip (highlighted part) might be different from mine.</p>
+                        <figure><img class="img-fluid figure-img" src="assets/img/ip-a-1024x291.png">
+                            <figcaption style="color:rgb(255,255,255);">Output of ip a</figcaption>
+                        </figure>
+                        <p>Once you know your IP you can type it into the Putty window and connect to it or if you are use Terminal (Mac / Linux) just run - ssh {your Username}@{your ip}</p>
+                        <p>First lets tell&nbsp;<a href="https://www.ubuntu.com/download/server">Ubuntu</a>&nbsp;that it should get all the new updates to its repositories by running:</p>
+                        <ul class="list-group">
+                            <li class="list-group-item"><span><em>sudo apt-get update</em><br></span></li>
+                        </ul>
+                        <p style="margin:20px 0px 20px;">Once it is all done we can start by installing our media server software, first off is&nbsp;<a href="https://www.plex.tv/">Plex</a>, it is used as the hart of our server that will be responsible for organising your Movies, TV Shows,
+                            Music and Photos, Plex has many more amazing features but we will only covering a few of these in the tutorial, if you would like to know more of what Plex is capable of you can see the list&nbsp;<a href="https://www.plex.tv/your-media/">here</a>.</p>
+                        <p>Download the Plex software by running (you can get the new version on there website, as of this writing the version is 1.13.5.5332:</p>
+                        <ul class="list-group">
+                            <li class="list-group-item"><span><em>wget https://downloads.plex.tv/plex-media-server/1.13.5.5332-21ab172de/plexmediaserver_1.13.5.5332-21ab172de_amd64.deb</em><br></span></li>
+                        </ul>
+                        <p style="margin:20px 0px 20px;">Then we need to install it:</p>
+                        <ul class="list-group">
+                            <li class="list-group-item"><span><em>dkpg -i&nbsp;plexmediaserver_1.13.5.5332-21ab172de_amd64.deb</em><br></span></li>
+                        </ul>
+                        <p style="margin:20px 0px 20px;">Let us create some folders for use in Plex, this is to keep things neat and tindy and to help Plex better manage your media, lets create some folders:</p>
+                        <ul class="list-group">
+                            <li class="list-group-item"><span><em>mkdir /media/Movies</em></span></li>
+                            <li class="list-group-item"><span><em>mkdir /media/'TV Shows'</em></span></li>
+                        </ul>
+                        <p style="margin:20px 0px 20px;">You can add more like photos, music or whatever you like by changing the last part after the / to something else e.g /media/Photos.&nbsp;<em>Note: if you want a space in your name add single&nbsp;quotes&nbsp;to it.</em></p>
+                        <p>Now we have the media server up and running, so let us configure it first so that you can start using it.<br></p>
+                        <p>In your browser go to (we already got the ip from a previouse step): http://{ServerIP}:32400/web/index.html.<br></p>
+                        <p>This page will ask you to sign in, if you do not already have a plex account you can click the sign up link on the page, once you have an account you can return here to sign in.<br></p>
+                        <p>The next screen is the setup wizzard,&nbsp;Click "GOT IT!" to continue, &nbsp;now&nbsp;it will show you a list of servers, with a randomly generated name. Give it a friendly name, I called mine Mercury because I like to follow
+                            a naming convention, all the devices in my home are named after planets in the solar system, and then click "NEXT".<br></p>
+                        <figure></figure>
+                </div>
+                <figure></figure>
+                <figure></figure>
+                <figure><img class="img-fluid figure-img" src="assets/img/Plex-screen-1.png">
+                    <figcaption style="color:rgb(255,255,255);padding:0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Setting up Plex</figcaption>
+                </figure>
+                <p>The next screen will ask us to create libraries, you can create any you like depending on the media you have, for this tutorial we will create two - Movies &amp; TV Shows, for now click "DONE" &nbsp;as we will add the Libraries later on.&nbsp;<em>NOTE</em>:&nbsp;<em>all the media that is created on this server must be owned by you, I do not condone any illegally gotten media</em>.<br></p>
+                <p>You now have your first media server with Plex setup, however it is only accesable inside of your network, we still need to allow access to it form outside your network, this will allow you to view your media from anyware you have access
+                    to the internet or in my case share media with family members like photos, family videos and the odd digital Movie, we are going to do it securly so we do not compromise your internal network.<br></p>
+                <p>Lets get started in setting up access, Click the Settings icon (top right) → "Server" (top) → "Remote Access" (left) and insure that Remote Access is enabled, if not turn it on and click "SAVE CHANGES" at the bottom of the page. You will
+                    see a green notification at the top of the page saying "Fully accessible outside your network".<br></p>
+                <figure><img class="img-fluid figure-img" src="assets/img/Plex-Screen-2-1024x485.png">
+                    <figcaption style="color:rgb(255,255,255);padding:0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Configuring remote access</figcaption>
+                </figure>
+                <p>If you do not see this you probably need to open ports on your router, please visit&nbsp;<a href="https://portforward.com/router.htm">Portfoward</a>&nbsp;for detailed instructions on each router.<br></p>
+                <p>Next we will configure the rest of the server so that it works optimally. On the same screen click on library (left) and set the following:<br></p>
+                <ul class="list-group">
+                    <li class="list-group-item"><span>"Scan my library periodically":&nbsp;enabled</span></li>
+                    <li class="list-group-item"><span>"Library scan interval" (you can set this longer if you like):&nbsp;hourly</span></li>
+                    <li class="list-group-item"><span>"Empty trash automatically after every scan":&nbsp;enabled</span></li>
+                    <li class="list-group-item"><span>"Allow media deletion":&nbsp;enabled</span></li>
+                    <li class="list-group-item"><span>"Weeks to consider for On Deck and Continue Watching":&nbsp;52</span></li>
+                    <li class="list-group-item"><span>"Generate video preview thumbnails":&nbsp;never</span></li>
+                    <li class="list-group-item"><span>"Generate chapter thumbnails":&nbsp;as a scheduled task</span></li>
+                </ul>
+                <p style="margin:20px 0px 20px;">Click "SAVE CHANGES".<br></p>
+                <figure><img class="img-fluid figure-img" src="assets/img/Plex-screen-3.png">
+                    <figcaption style="color:rgb(255,255,255);padding:0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp;Configuring your plex settings</figcaption>
+                </figure>
+                <p>Next we make chages to the Transcoder (left) and set the following:<br></p>
+                <ul class="list-group">
+                    <li class="list-group-item"><span>"Transcoder temporary directory":&nbsp;/transcode</span></li>
+                    <li class="list-group-item"><span>"Transcoder default throttle buffer":&nbsp;1000</span></li>
+                    <li class="list-group-item"><span>"Use hardware acceleration when available":&nbsp;disabled</span></li>
+                    <li class="list-group-item"><span>"Maximum simultaneous video transcode":&nbsp;Unlimited</span></li>
+                </ul>
+                <p style="margin:20px 0px 20px;">Click "SAVE CHANGES".<br></p>
+                <figure><img class="img-fluid figure-img" src="assets/img/Plex-Screen-4.png">
+                    <figcaption style="color:rgb(255,255,255);padding:0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; Configuring your plex settings</figcaption>
+                </figure>
+                <p>Next we make changes to the DLNA (left) and set the following:<br></p>
+                <ul class="list-group">
+                    <li class="list-group-item"><span>"Enable the DLNA server":&nbsp;disabled</span></li>
+                    <li class="list-group-item"><span>"DLNA server timeline reporting":&nbsp;disabled</span></li>
+                </ul>
+                <p style="margin:20px 0px 20px;">Click "SAVE CHANGES".<br></p>
+                <p>Now let us add some media to our newly setup Plex, we will create two Libraries as mentioned before, Movies and TV Shows, to do this we are going to do the following:<br></p>
+                <p>In the main Plex screen (Home icon on the top left), click "+" next to "LIBRARIES".<br></p><img src="assets/img/Plex-Libraries-add.png">
+                <figure></figure>
+                <p>In the "Add Library" window, select "Movies" and click "NEXT".<br></p>
+                <figure><img class="img-fluid figure-img" src="assets/img/Plex-Movies-add.png">
+                    <figcaption style="color:rgb(255,255,255);padding:0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Creating your first library</figcaption>
+                </figure>
+                <p>Click "BROWSE FOR MEDIA FOLDER".<br></p>
+                <figure><img class="img-fluid figure-img" src="assets/img/Add-library-folder.png">
+                    <figcaption style="color:rgb(255,255,255);padding:0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        Add a folder for your library</figcaption>
+                </figure>
+                <p>In second column of the "Add Folder" window, select&nbsp;media, then Movies, and then click the "ADD" button.<br></p>
+                <p>Once that is done do the same for TV Shows, but this time selecting type as "TV Shows" and during the "Browse For Media Folder, select&nbsp;media, then TV Shows.<br></p>
+                <p>You can now access your media server via&nbsp;https://plex.tv/web or by installing the app on your mobile device or computer and sign in on the device and it will pick up all the media you ave added to your server.<br></p>
+                <p>To add media you can just copy the media into the respective folders you have setup during the "Add Libraries" part, it will automatically grab posters and discriptions of each item except for your personal media this you will have to
+                    add the details yourself.<br></p>
+                <p>Now that was a lot of info, but it is all nesessary to get your media center working optimally, next time we will look at automation software for scraping Movies or TV Shows however this is for educational purposes to show what is possible
+                    with software and should not be used to obtain Movies or TV Shows illegally, we shall start on that in PART 3.<br></p>
+                <p>Live long and prosper!<br></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="intro"></div>
+    <div class="article-list" style="background-color:rgb(237,237,237);"></div>
+    <div class="footer-basic" style="height:200px;margin:30px 0px 0px 0px;background-color:rgb(46,47,51);">
+        <footer>
+            <div class="social"><a href="https://www.linkedin.com/in/hein-reyneke-873313a6/" data-bs-hover-animate="rubberBand"><i class="icon ion-social-linkedin-outline" style="color:rgb(255,255,255);"></i></a><a href="https://twitter.com/Dreamsword981" data-bs-hover-animate="rubberBand"><i class="icon ion-social-twitter" style="color:rgb(255,255,255);"></i></a>
+                <a
+                    href="https://www.facebook.com/hein.reyneke" data-bs-hover-animate="rubberBand"><i class="icon ion-social-facebook" style="color:rgb(255,255,255);"></i></a><a href="https://github.com/Dreamsword/Profile" data-bs-hover-animate="rubberBand"><i class="icon ion-social-github" style="color:rgb(255,255,255);"></i></a></div>
+            <ul
+                class="list-inline">
+                <li class="list-inline-item"><a href="index.html" style="color:rgb(255,255,255);">About</a><a href="blog.html" style="color:rgb(255,255,255);margin:20px;">Blog</a></li>
+                </ul>
+                <p class="copyright">Hein Reyneke © 2020</p>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

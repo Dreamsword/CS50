@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Get Stock Quote
+{% endblock %}
+{% block main %}
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus id="symbol" class="form-control" name="symbol" placeholder="Symbol" type="text" style="text-transform:uppercase" required/>
+        </div>
+        <button class="btn btn-primary" id="submit" type="submit" disabled>Get Quote</button>
+    </form>
+        <script>
+        document.querySelector('#symbol').onkeyup = function() {
+            if (document.querySelector('#symbol').value === '') {
+                document.querySelector('#submit').disabled = true;
+            } else {
+                document.querySelector('#submit').disabled = false;
+            }
+        }
+    </script>
+{% endblock %}

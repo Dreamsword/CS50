@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Shares
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>{{ username }}'s Shares Summary</tr>
+        </thead>
+        <thead class="thead-dark">
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Bought Price</th>
+                <th>Current Price</th>
+                <th>Total</th>
+                <th>Profit</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for share in shares %}
+                <tr>
+                    <td>{{ share.symbol }}</td>
+                    <td>{{ share.total_shares }}</td>
+                    <td>{{ current_price[share.price] | usd }}</td>
+                    <td>{{ current_price[share.symbol]["price"] | usd }}</td>
+                    <td>{{ (current_price[share.symbol]["price"] * share.total_shares) | usd }}</td>
+                    <td>{{ ((current_price[share.symbol]["price"] * share.total_shares) - (current_price[share.price] * share.total_shares)) | usd }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td><strong style="text-transform:uppercase; float:right">Remaining Cash:</strong></td>
+                <td style="float:right">{{ remaining_cash | usd }}</td>
+            </tr>
+            <tr>
+                <td><strong style="text-transform:uppercase; float:right">Grand Total:</strong></td>
+                <td style="float:right">{{ grand_total | usd }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

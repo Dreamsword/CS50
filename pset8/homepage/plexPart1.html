@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal CV or Portfolio">
+    <title>Lazegeek</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background-color:rgb(46,47,51);">
+    <div>
+        <div class="header-dark">
+            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search" style="color:rgb(255,255,255);background-color:rgba(0,0,0,0);">
+                <div class="container"><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="index.html" style="color:rgb(255,255,255);">About</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="blog.html" style="color:rgb(255,255,255);">Blog</a></li>
+                        </ul>
+                        <form class="form-inline mr-auto" target="_self">
+                            <div class="form-group"><label for="search-field"></label></div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="container hero">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2" data-aos="zoom-out-up" data-aos-duration="1100" data-aos-once="true">
+                        <h1 class="text-center" style="margin:0px;">I'm Hein Reyneke</h1><span id="devText" class="col-lg-4 offset-lg-3 col-md-6 offset-md-2 col-sm-4 offset-sm-2"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="article-clean" style="background-color:rgb(46,47,51);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    <div class="intro">
+                        <h1 class="text-center" style="color:rgb(255,255,255);">There is no place like 127.0.0.1, part 1</h1>
+                        <p class="text-center"><span class="by" style="color:rgb(255,255,255);">by</span> <a href="#" style="color:rgb(255,255,255);">Hein Reyneke</a><span class="date" style="color:rgb(255,255,255);">July 30th, 2018</span></p><img class="img-fluid" src="assets/img/Plex1.jpg"></div>
+                    <div
+                        class="text">
+                        <p style="color:rgb(255,255,255);">Salutations readers, I have been doing some really cool stuff at work in the development department and it is quite revolutionary. But enough about my work project, that I might be telling you all about later on in a later post,
+                            stay tuned.</p>
+                        <p style="color:rgb(255,255,255);">So after putting in some thought and got a plan together of what I would like to do for the tech/dev tutorial part of this blog, I came up with a multipart project that will serve multiple functions as well as learn while we are
+                            doing it.</p>
+                        <p style="color:rgb(255,255,255);">First we will need to decide what platform (OS) we are going to use for the project, although you can use any one of the 3 big ones, we will be using&nbsp;<a href="https://www.ubuntu.com/?utm_expid=.92kIXiqDSpuSF35lE8FS1Q.0&amp;utm_referrer=https%3A%2F%2Fwww.google.com%2F">Ubuntu</a>&nbsp;(Linux)
+                            for this project. This is my OS of choice, MacOS comes second as I use that for work and most of my daily tasks, lastly Windows only for gaming purposes though.</p>
+                        <p style="color:rgb(255,255,255);">Many people might think Linux is such a difficult OS to use but in fact it is quite easy, you just need get used to it moving from Windows. Think about the first time you worked on Windows, everything was new and daunting, read&nbsp;
+                            <a
+                                href="https://en.wikipedia.org/wiki/Windows_3.1x">Windows 3.1</a>.</p>
+                        <p style="color:rgb(255,255,255);">We are going to build a media server with automated tools to rename your Movies and Series that you own as well as stream the digital version to multiple devices from your server, we can also use it to store photos and music and
+                            stream that across devices as well.</p>
+                        <p style="color:rgb(255,255,255);">After that we are going to build on it further with all the tools needed to start our first development project and what options we have, but we will get to that later on. We will also be using this box as a remote proxy that can
+                            be used if you are connected on a slow connections and need your http download to be downloaded faster than what you have access to at the time and lastly we will use it as a jump box to gain access to your home network.</p>
+                        <h1
+                            style="color:rgb(255,255,255);">OK lets get down to business:</h1>
+                            <h2 style="color:rgb(255,255,255);">1. Downloading the needed software</h2>
+                            <p style="color:rgb(255,255,255);">We need to download the OS, for this project we will be using&nbsp;<a href="https://www.ubuntu.com/download/server/thank-you?version=18.04.1&amp;architecture=amd64">Ubuntu</a>&nbsp;Server.</p>
+                            <p style="color:rgb(255,255,255);">Next we can use VM (virtual machine) software like&nbsp;<a href="https://www.virtualbox.org/wiki/Downloads">virtualbox</a>&nbsp;that is totally free and available for all major operating systems or you could put it on a stand
+                                alone&nbsp;<a href="https://amzn.to/2LqhdmW">pc / server</a>. I am personally running a Linux server at home that runs 24/7 that I use for many things.</p>
+                            <h2 style="color:rgb(255,255,255);">2. Setting up the VM</h2>
+                            <p style="color:rgb(255,255,255);">Once downloaded and installed, launch virtualbox and click on the new button on the top left, select Linux as the Type, Ubuntu as the version and give it a name that is identifiable, in my case ill call it Lazegeek Tutorial</p>
+                            <figure><img class="img-fluid figure-img" src="assets/img/VB-Step-1-1024x647.png">
+                                <figcaption style="color:rgb(255,255,255);">Creating the VM</figcaption>
+                            </figure>
+                            <p style="color:rgb(255,255,255);">Now we need to set the Memory Size to 4Gb, we can always increase this at a later stage if we need to, and click continue.</p>
+                            <figure><img class="img-fluid figure-img" src="assets/img/Set-Memory-Size-1024x651.png">
+                                <figcaption style="color:rgb(255,255,255);">Setting the memory</figcaption>
+                            </figure>
+                            <p style="color:rgb(255,255,255);">Next we need to allocate it hard disk space, select “Create a virtual hard disk” now and click create. In the new window choose “VDI”, click continue, choose “Dynamically allocated”, click continue.</p>
+                            <p style="color:rgb(255,255,255);">Then set the hard disk size to at least 20Gb and click create, we can also add more later on if need be. You will also need to take into account if you are going to use the VM as a Media Server then you need to add more hard
+                                disk space, in my opinion you should rather use a stand alone&nbsp;<a href="https://amzn.to/2LqhdmW">pc / server</a>&nbsp;for that.</p>
+                            <figure><img class="img-fluid figure-img" src="assets/img/Set-harddisk-space-1024x751.png">
+                                <figcaption style="color:rgb(255,255,255);padding:0px;">Setting the disk space</figcaption>
+                            </figure>
+                </div>
+                <p style="color:rgb(255,255,255);">Thats it! Now we have the first makings of our VM that we will be using.</p>
+                <h2 style="color:rgb(255,255,255);">3. Installing Ubuntu on our new VM</h2>
+                <p style="color:rgb(255,255,255);">First we need to mount the Ubuntu iso that we just downloaded, to do this click on settings, go to storage and then select the cd drive (tile says “Empty”) under the “controller: IDE” section. On the right hand side you need to click the
+                    “CD” icon and then choose your iso file that you downloaded.</p>
+                <figure><img class="img-fluid figure-img" src="assets/img/VB-Step-4-1024x257.png">
+                    <figcaption style="color:rgb(255,255,255);padding:0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Mounting the ISO</figcaption>
+                </figure>
+                <p style="color:rgb(255,255,255);">Now its time to start up your VM, give it a few moments to start, once you get to the language selection screen choose your preferred language. Leave the next few screens (preferred keyboard layout, Network Connections, Proxy Address -
+                    unless you are working behind a proxy, if you don’t know what this is you are probably not &amp; Ubuntu Archive Mirror) on its defaults as the installer is pretty good at picking these settings for itself. For this tutorial we are
+                    going to select “Entire Disk” when you get to the “Filesystem Setup Menu” and choose the newly created hard disk.</p>
+                <figure><img class="img-fluid figure-img" src="assets/img/Choose-disk-to-install-to-1024x825.png">
+                    <figcaption style="color:rgb(255,255,255);padding:0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Choose disk to install</figcaption>
+                </figure>
+                <p style="color:rgb(255,255,255);">Once selected the installer will automatically setup the necessary partitions for you so no need to worry about that, so we just choose “Done” and c confirm that you want to continue. On the next screen you need to fill in details for
+                    your Ubuntu Setup, see example below.</p>
+                <figure><img class="img-fluid figure-img" src="assets/img/Ubuntu-server-details-1024x762.png">
+                    <figcaption style="color:rgb(255,255,255);padding:0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Configuring your install settings</figcaption>
+                </figure>
+                <p style="color:rgb(255,255,255);">On the next screen we do not select anything and just choose “Done” and then “Reboot Now”. It ill display a message “Please remove the installation media, then press” Enter”, to remove the iso click “Devices”, hover over “Optical Drives”
+                    and then click “Remove disk from virtual drive” and press enter so that the installer can continue.</p>
+                <p style="color:rgb(255,255,255);">Congratulation, you have successfully installed Ubuntu (version 18.04 as of this writing), see anyone can do it, it is very easy, it just seems daunting but it really isn’t. Next time we will be installing our media center software and
+                    some other tools to get things automated.</p>
+                <p style="color:rgb(255,255,255);">Let me know in the comments what you guys think of the tutorial and if you have any suggestions.</p>
+                <p style="color:rgb(255,255,255);">May the force be with you!</p>
+                <figure></figure>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="intro"></div>
+    <div class="article-list" style="background-color:rgb(237,237,237);"></div>
+    <div class="footer-basic" style="height:200px;margin:30px 0px 0px 0px;background-color:rgb(46,47,51);">
+        <footer>
+            <div class="social"><a href="https://www.linkedin.com/in/hein-reyneke-873313a6/" data-bs-hover-animate="rubberBand"><i class="icon ion-social-linkedin-outline" style="color:rgb(255,255,255);"></i></a><a href="https://twitter.com/Dreamsword981" data-bs-hover-animate="rubberBand"><i class="icon ion-social-twitter" style="color:rgb(255,255,255);"></i></a>
+                <a
+                    href="https://www.facebook.com/hein.reyneke" data-bs-hover-animate="rubberBand"><i class="icon ion-social-facebook" style="color:rgb(255,255,255);"></i></a><a href="https://github.com/Dreamsword/Profile" data-bs-hover-animate="rubberBand"><i class="icon ion-social-github" style="color:rgb(255,255,255);"></i></a></div>
+            <ul
+                class="list-inline">
+                <li class="list-inline-item"><a href="index.html" style="color:rgb(255,255,255);">About</a><a href="blog.html" style="color:rgb(255,255,255);margin:20px;">Blog</a></li>
+                </ul>
+                <p class="copyright">Hein Reyneke © 2020</p>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

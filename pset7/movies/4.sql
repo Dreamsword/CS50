@@ -1,0 +1,1 @@
+select count(*) as "rating of 10+" from movies join ratings on ratings.movie_id=movies.id where ratings.rating = 10;

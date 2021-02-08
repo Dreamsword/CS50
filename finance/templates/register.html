@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register User
+{% endblock %}
+{% block main %}
+    <form action="/register" method="post"
+        oninput='confirmation.setCustomValidity(confirmation.value != password.value ? "Passwords do not match." : "");username.setCustomValidity(username.value.length < 4 ? "Username must be at least 4 characters." : "")'>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" type="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" min="8" required>
+            <input class="form-control" id="confirmation" name="confirmation" placeholder="Confirm Password" type="password" required>
+        </div>
+        <button class="btn btn-primary" id="submit" type="submit" disabled>Create User</button>
+    </form>
+
+    <div id="message" style="display:none;">
+      <h3>Password must contain the following:</h3>
+      <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+      <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+      <p id="number" class="invalid">A <b>number</b></p>
+      <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+    </div>
+    <script>
+        document.querySelector('#username').onkeyup = function() {
+            if (document.querySelector('#username').value.length < 4) {
+                document.querySelector('#submit').disabled = true;
+            } else {
+                document.querySelector('#submit').disabled = false;
+            }
+        }
+
+        // W3Schools example modified
+        var myInput = document.getElementById("password");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+        }
+
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+            document.getElementById("message").style.display = "none";
+        }
+
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function() {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if(myInput.value.match(lowerCaseLetters)) {
+              letter.classList.remove("alert-danger");
+              letter.classList.add("alert-success");
+            } else {
+              letter.classList.remove("alert-success");
+              letter.classList.add("alert-danger");
+            }
+
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if(myInput.value.match(upperCaseLetters)) {
+              capital.classList.remove("alert-danger");
+              capital.classList.add("alert-success");
+            } else {
+              capital.classList.remove("alert-success");
+              capital.classList.add("alert-danger");
+            }
+
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if(myInput.value.match(numbers)) {
+              number.classList.remove("alert-danger");
+              number.classList.add("alert-success");
+            } else {
+              number.classList.remove("alert-success");
+              number.classList.add("alert-danger");
+            }
+
+            // Validate length
+            if(myInput.value.length >= 8) {
+              length.classList.remove("alert-danger");
+              length.classList.add("alert-success");
+            } else {
+              length.classList.remove("alert-success");
+              length.classList.add("alert-danger");
+            }
+        }
+    </script>
+{% endblock %}
